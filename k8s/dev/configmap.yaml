@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-web-app-config
+  namespace: dev
+data:
+  ENVIRONMENT: "development"
+  DATABASE_URL: "postgres://dev-db-url"
