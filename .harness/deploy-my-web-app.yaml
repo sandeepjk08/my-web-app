@@ -1,0 +1,50 @@
+pipeline:
+  name: deploy-my-web-app
+  identifier: deploy_my_web_app
+  projectIdentifier: my-web-app
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: Build
+        identifier: Build
+        type: CI
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: Build Image
+                  identifier: Build_Image
+                  type: Run
+                  spec:
+                    shell: Bash
+                    command: |
+                      echo "Building Docker image..."
+                      docker build -t my-web-app:latest .
+              - step:
+                  name: Push Image to Docker Hub
+                  identifier: Push_Image
+                  type: Run
+                  spec:
+                    shell: Bash
+                    command: |
+                      echo "Pushing Docker image..."
+                      docker tag my-web-app:latest sandeep199008/my-web-app:latest
+                      docker push sandeep199008/my-web-app:latest
+    - stage:
+        name: Deploy
+        identifier: Deploy
+        type: CD
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: Deploy to Minikube
+                  identifier: Deploy_Minikube
+                  type: Run
+                  spec:
+                    shell: Bash
+                    command: |
+                      echo "Deploying to Minikube..."
+                      kubectl apply -f k8s/deployment.yaml
+
