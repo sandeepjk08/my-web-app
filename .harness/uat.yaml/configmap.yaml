@@ -1,0 +1,5 @@
+metadata:
+  namespace: uat
+data:
+  ENVIRONMENT: "uat"
+  DATABASE_URL: "postgres://uat-db-url"

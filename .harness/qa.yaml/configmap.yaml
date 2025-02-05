@@ -1,0 +1,5 @@
+metadata:
+  namespace: qa
+data:
+  ENVIRONMENT: "qa"
+  DATABASE_URL: "postgres://qa-db-url"
