@@ -6,8 +6,8 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: Build
-        identifier: Build
+        name: WebApp
+        identifier: webapp
         type: CI
         spec:
           execution:
@@ -47,4 +47,3 @@ pipeline:
                     command: |
                       echo "Deploying to Minikube..."
                       kubectl apply -f k8s/deployment.yaml
-
