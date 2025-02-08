@@ -13,6 +13,8 @@ spec:
       labels:
         app: my-web-app
     spec:
+      imagePullSecrets:                  # 🔹 Add this section
+        - name: regcred                   # 🔹 Name of the secret you created
       containers:
         - name: my-web-app
           image: sandeep199008/my-web-app:latest
@@ -23,3 +25,4 @@ spec:
                 name: my-web-app-config
             - secretRef:
                 name: my-web-app-secret
+
