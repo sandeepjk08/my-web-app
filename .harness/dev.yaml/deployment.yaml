@@ -13,14 +13,15 @@ spec:
       labels:
         app: my-web-app
     spec:
+      imagePullSecrets:
+        - name: regcred  # 🔹 Secret to pull images from Docker Hub
       containers:
         - name: my-web-app
           image: sandeep199008/my-web-app:latest
           ports:
             - containerPort: 80
-          env:
-            - name: DATABASE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: my-web-app-secret
-                  key: DATABASE_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: my-web-app-config
+            - secretRef:
+                name: my-web-app-secret
