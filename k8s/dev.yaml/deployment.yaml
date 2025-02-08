@@ -25,4 +25,13 @@ spec:
                 name: my-web-app-config
             - secretRef:
                 name: my-web-app-secret
+<<<<<<< HEAD
 
+=======
+          env:
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: my-web-app-secret
+                  key: DATABASE_PASSWORD
+>>>>>>> ed90af7e4ffa9c56e562e1b8ef0fcbf79bda7aec

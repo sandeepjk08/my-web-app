@@ -14,6 +14,7 @@ spec:
         app: my-web-app
     spec:
 <<<<<<< HEAD
+<<<<<<< HEAD
   containers:
     - name: my-web-app
       image: sandeep199008/my-web-app:latest
@@ -36,6 +37,8 @@ spec:
 =======
       imagePullSecrets:
         - name: regcred  # 🔹 Secret to pull images from Docker Hub
+=======
+>>>>>>> ed90af7e4ffa9c56e562e1b8ef0fcbf79bda7aec
       containers:
         - name: my-web-app
           image: sandeep199008/my-web-app:latest
