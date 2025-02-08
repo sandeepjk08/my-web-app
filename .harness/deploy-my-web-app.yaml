@@ -45,5 +45,7 @@ pipeline:
                   spec:
                     shell: Bash
                     command: |
+                      echo "Configuring kubectl for Minikube..."
+                      kubectl config use-context minikube  # Ensure kubectl is using the correct context
                       echo "Deploying to Minikube..."
                       kubectl apply -f k8s/deployment.yaml
